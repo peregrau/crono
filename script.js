@@ -1,17 +1,19 @@
 let timerId = null;
-let TempsSerie = 4;
+let TempsSerie = 30;
 // let remainingTime = 30;
 let remainingTime = TempsSerie;
 let cycleCount = 0;
 let totalTimeElapsed = 0; // Total elapsed time in seconds
 
+const music = document.getElementById('background-music');		
+const beepSound = document.getElementById('beep-sound');
+
+
 function startTimer() {
     if (timerId) return; // Prevents multiple timers from running simultaneously
 	
-	const music = document.getElementById('background-music');
-    music.play().catch(error => {
-        console.error("Failed to start the background music:", error);
-    });
+//	const music = document.getElementById('background-music');
+    music.play().catch(error => {console.error("Failed to start the background music:", error);});
 	
     timerId = setInterval(tick, 1000);
 }
@@ -19,7 +21,7 @@ function startTimer() {
 function pauseTimer() {
     clearInterval(timerId);
     timerId = null;
-	const music = document.getElementById('background-music');
+//	const music = document.getElementById('background-music');
     music.pause();
 }
 
@@ -27,6 +29,7 @@ function resumeTimer() {
     if (!timerId) {
         timerId = setInterval(tick, 1000);
     }
+	music.play();
 }
 
 function stopTimer() {
@@ -42,7 +45,7 @@ function stopTimer() {
     updateTable('-', '-', formatTime(0)); // Reset the table
 	
 	
-	const music = document.getElementById('background-music');
+//	const music = document.getElementById('background-music');
         music.pause();
         music.currentTime = 0; // Reset the music to the start
 }
@@ -83,16 +86,17 @@ function updateDisplay(time) {
 
 function playBeep() 
 {
-	const music = document.getElementById('background-music');		
-	music.volume = 0.0;	
-	
+//	const music = document.getElementById('background-music');		
+	music.volume = 0.0;
+	music.pause();
 		
-    const beepSound = document.getElementById('beep-sound');
+//    const beepSound = document.getElementById('beep-sound');
 	beepSound.volume = 1;
     beepSound.currentTime = 0;
     beepSound.play();
 	
 	music.volume = 1.0;	
+	music.play();
 	
 }
 

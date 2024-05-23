@@ -40,7 +40,7 @@ function tick() {
         updateImage(cycleCount + 1); // Update the image for the new cycle
         addHistoryEntry(cycleCount, new Date().toLocaleTimeString()); // Add history entry
 
-        if (cycleCount >= 10) {
+        if (cycleCount >= 31) {
             clearInterval(timerId);
             timerId = null;
             alert("Completed 10 cycles of 5 seconds each!");

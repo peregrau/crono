@@ -38,6 +38,8 @@ function tick() {
     if (remainingTime <= 0) {
         cycleCount++;
         updateImage(cycleCount + 1); // Update the image for the new cycle
+        addHistoryEntry(cycleCount, new Date().toLocaleTimeString()); // Add history entry
+
         if (cycleCount >= 10) {
             clearInterval(timerId);
             timerId = null;
@@ -63,5 +65,14 @@ function playBeep() {
 
 function updateImage(cycleNumber) {
     const imgElement = document.getElementById('cycle-image');
-    imgElement.src = `image${cycleNumber}.jpg`; // Assuming image names follow this pattern
+    imgElement.src = `images/image${cycleNumber}.jpg`; // Assuming image names follow this pattern
+}
+
+function addHistoryEntry(cycleNumber, time) {
+    const tableBody = document.getElementById('history-table').getElementsByTagName('tbody')[0];
+    const newRow = tableBody.insertRow();
+    const cell1 = newRow.insertCell(0);
+    const cell2 = newRow.insertCell(1);
+    cell1.textContent = cycleNumber;
+    cell2.textContent = time;
 }

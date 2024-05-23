@@ -1,0 +1,33 @@
+h1 {
+    font-size: 48px;
+    color: #333;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+.timer-container {
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px; /* Adds space between the image and the timer */
+}
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

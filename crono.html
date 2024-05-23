@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Second Interval Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="timer-container">
+        <img id="cycle-image" src="images/image1.jpg" alt="Cycle Image" style="width:200px; height:auto; display:block; margin:auto;">
+        <h1 id="time">00:05</h1>
+        <button onclick="startTimer()">Start Timer</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resumeTimer()">Resume</button>
+        <button onclick="stopTimer()">Stop</button>
+        <audio id="beep-sound" src="beep.mp3"></audio>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

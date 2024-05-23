@@ -65,9 +65,8 @@ function playBeep() {
 
 function updateImage(cycleNumber) {
     const imgElement = document.getElementById('cycle-image');
-    imgElement.src = 'images/image${cycleNumber}.jpg'; // Assuming image names follow this pattern
+    imgElement.src = `images/image${cycleNumber}.jpg`; // Assuming image names follow this pattern
 }
-
 function addHistoryEntry(cycleNumber, time) {
     const tableBody = document.getElementById('history-table').getElementsByTagName('tbody')[0];
     const newRow = tableBody.insertRow();

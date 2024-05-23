@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+   <audio id="background-music" src="music2.mp3" loop>
+        Your browser does not support the audio element.
+    </audio>
     <div class="timer-container">
         <img id="cycle-image" src="images/image1.jpg" alt="Cycle Image" style="width:200px; height:auto; display:block; margin:auto;">
-        <h1 id="time">00:05</h1>
+        <h1 id="time">00:30</h1>
         <button onclick="startTimer()">Iniciar</button>
         <button onclick="pauseTimer()">Pausar</button>
         <button onclick="resumeTimer()">Continuar</button>
@@ -17,16 +20,21 @@
         <audio id="beep-sound" src="beep.mp3"></audio>
         
         <div style="margin-top: 20px;">
-            <h2>Historial Exercici</h2>
+            <h2>Cicle Info</h2>
             <table id="history-table">
                 <thead>
                     <tr>
                         <th>Cicle</th>
-                        <th>Temps</th>
+                        <th>Hora</th>
+                        <th>Temps Total</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Rows will be added here dynamically -->
+                    <tr>
+                        <td id="cycle-cell">-</td>
+                        <td id="time-cell">-</td>
+                        <td id="total-time-cell">00:00</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

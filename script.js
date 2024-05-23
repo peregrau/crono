@@ -63,5 +63,5 @@ function playBeep() {
 
 function updateImage(cycleNumber) {
     const imgElement = document.getElementById('cycle-image');
-    imgElement.src = `images/image${cycleNumber}.jpg`; // Assuming image names follow this pattern
+    imgElement.src = `image${cycleNumber}.jpg`; // Assuming image names follow this pattern
 }

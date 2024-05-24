@@ -1,6 +1,6 @@
 let timerId = null;
-let TempsSerie = 4;
-let Cicles = 96;
+let TempsSerie = 20;
+let Cicles = 151;
 // let remainingTime = 30;
 let remainingTime = TempsSerie;
 let cycleCount = 0;

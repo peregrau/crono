@@ -1,5 +1,6 @@
 let timerId = null;
-let TempsSerie = 30;
+let TempsSerie = 4;
+let Cicles = 96;
 // let remainingTime = 30;
 let remainingTime = TempsSerie;
 let cycleCount = 0;
@@ -7,6 +8,28 @@ let totalTimeElapsed = 0; // Total elapsed time in seconds
 
 const music = document.getElementById('background-music');		
 const beepSound = document.getElementById('beep-sound');
+
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake lock is active.');
+    wakeLock.addEventListener('release', () => {
+      console.log('Wake lock was released.');
+    });
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+async function releaseWakeLock() {
+  if (wakeLock !== null) {
+    await wakeLock.release();
+    wakeLock = null;
+    console.log('Wake lock released.');
+  }
+}
 
 
 function startTimer() {
@@ -66,10 +89,10 @@ function tick() {
         updateImage(cycleCount + 1); // Update the image for the new cycle
         updateTable(cycleCount, new Date().toLocaleTimeString(), formatTime(totalTimeElapsed)); // Update the table
 
-        if (cycleCount >= 61) {
+        if (cycleCount >= Cicles) {
             clearInterval(timerId);
             timerId = null;
-            alert("Completed 60 cycles of 30 seconds each!");
+            alert("Completed cycles of 30 seconds each!");
             return;
         }
         remainingTime = 30;
@@ -97,6 +120,10 @@ function playBeep()
 	
 	music.volume = 1.0;	
 	music.play();
+
+	// Request the wake lock
+	requestWakeLock();
+
 	
 }
 

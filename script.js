@@ -6,7 +6,7 @@ let remainingTime = TempsSerie;
 let cycleCount = 0;
 let totalTimeElapsed = 0; // Total elapsed time in seconds
 
-const music = document.getElementById('background-music');		
+// const music = document.getElementById('background-music');		
 const beepSound = document.getElementById('beep-sound');
 
 let wakeLock = null;
@@ -36,7 +36,7 @@ function startTimer() {
     if (timerId) return; // Prevents multiple timers from running simultaneously
 	
 //	const music = document.getElementById('background-music');
-    music.play().catch(error => {console.error("Failed to start the background music:", error);});
+//    music.play().catch(error => {console.error("Failed to start the background music:", error);});
 	
     timerId = setInterval(tick, 1000);
 }
@@ -45,14 +45,14 @@ function pauseTimer() {
     clearInterval(timerId);
     timerId = null;
 //	const music = document.getElementById('background-music');
-    music.pause();
+  //  music.pause();
 }
 
 function resumeTimer() {
     if (!timerId) {
         timerId = setInterval(tick, 1000);
     }
-	music.play();
+	//music.play();
 }
 
 function stopTimer() {
@@ -69,8 +69,8 @@ function stopTimer() {
 	
 	
 //	const music = document.getElementById('background-music');
-        music.pause();
-        music.currentTime = 0; // Reset the music to the start
+        //music.pause();
+        //music.currentTime = 0; // Reset the music to the start
 }
 
 function tick() {
@@ -110,16 +110,16 @@ function updateDisplay(time) {
 function playBeep() 
 {
 //	const music = document.getElementById('background-music');		
-	music.volume = 0.0;
-	music.pause();
+	//music.volume = 0.0;
+	//music.pause();
 		
 //    const beepSound = document.getElementById('beep-sound');
 	beepSound.volume = 1;
     beepSound.currentTime = 0;
     beepSound.play();
 	
-	music.volume = 1.0;	
-	music.play();
+	//music.volume = 1.0;	
+	//music.play();
 
 	// Request the wake lock
 	requestWakeLock();
@@ -143,3 +143,4 @@ function formatTime(seconds) {
     const secs = seconds % 60;
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
+
